@@ -1,6 +1,6 @@
 // 目标目录
-// var ROOT = '/mnt/mongo/ImageData/seller';
-var ROOT = 'temp/seller';
+// var ROOT = '/mnt/mongo/ImageData/mobilefield';
+var ROOT = 'temp';
 
 var now = new Date();
 var TIME = now.getFullYear() + '' + 
@@ -70,7 +70,7 @@ casper.then(function(){
                             });
                         }, function then(){
                             console.log('fuck ' + field + ' ' + name + ' ' + chartNames[cIndex]);
-                            self.captureSelector(ROOT + '/' + field + '/' + name + '/' + 
+                            self.captureSelector(ROOT + '/' + field + '/seller/' + name + '/' + 
                                 chartNames[cIndex] + '-' + TIME + '.png', '#chart');
                         });
                     });

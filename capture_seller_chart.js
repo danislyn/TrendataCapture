@@ -18,7 +18,6 @@ var chartTypes = [
 var chartNames = [
     'reviewChangeChart'
 ];
-var CHART_NUM = 1;
 
 var FIELDS = ['bag', 'dog', 'dress', 'office', 'skirt', 'wig'];
 

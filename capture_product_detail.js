@@ -8,24 +8,12 @@ var TIME = now.getFullYear() + '' +
     (now.getDate() < 10 ? ('0'+now.getDate()) : now.getDate());
 
 // ======================================
-var chartUrlPrefix = 'http://trendata.cn/rest/getChart/';
-var chartUrls = [
-    '/product/getPriceCurlChart/',
-    '/product/getReviewChange/',
-    '/product/getReviewIncrement/',
-    '/product/getEmotionWords/'
-];
-var chartTypes = [
-    'line',
-    'slopeLine',
-    'column',
-    'barStack'
+var pageUrlPrefix = 'http://trendata.cn/mp/productDetail/?asin=';
+var chartTargets = [
+    '#starsBlock'
 ];
 var chartNames = [
-    'priceChangeChart',
-    'reviewChangeChart',
-    'reviewIncrementChart',
-    'emotionWordsChart'
+    'starsInfoChart'
 ];
 
 var FIELDS = ['bag', 'dog', 'dress', 'office', 'skirt', 'wig'];
@@ -37,7 +25,12 @@ for(var i=0, len=FIELDS.length; i<len; i++){
 }
 
 // ======================================
-var casper = require('casper').create();
+var casper = require('casper').create({
+    viewportSize: {
+        width: 320,
+        height: 600
+    }
+});
 casper.start();
 
 // 获取各field下的product ASIN
@@ -66,22 +59,14 @@ casper.then(function(){
         var asins = products[field];
         for(var i=0; i<asins.length; i++){
             var asin = asins[i];
-            for(var j=0; j<chartUrls.length; j++){
+            for(var j=0; j<chartTargets.length; j++){
 
                 (function(self, field, asin, cIndex){
-                    var link = chartUrlPrefix + '?url=' + chartUrls[cIndex] + 
-                        '&param={asin:' + asin + '}&type=' + chartTypes[cIndex];
-
+                    var link = pageUrlPrefix + asin;
                     self.thenOpen(link, function(){
-                        self.waitFor(function check(){
-                            return self.evaluate(function(){
-                                return document.querySelectorAll('.blockUI').length == 0;
-                            });
-                        }, function then(){
-                            console.log('fuck ' + field + ' ' + asin + ' ' + chartNames[cIndex]);
-                            self.captureSelector(ROOT + '/' + field + '/' + asin + '/' + 
-                                chartNames[cIndex] + '-' + TIME + '.png', '#chart');
-                        });
+                        console.log('fuck ' + field + ' ' + asin + ' ' + chartNames[cIndex]);
+                        self.captureSelector(ROOT + '/' + field + '/' + asin + '/' + 
+                            chartNames[cIndex] + '-' + TIME + '.png', chartTargets[cIndex]);
                     });
                 })(this, field, asin, j);
             }

@@ -61,7 +61,7 @@ casper.then(function(){
 
                 (function(self, field, name, cIndex){
                     var link = chartUrlPrefix + '?url=' + chartUrls[cIndex] + 
-                        '&param={field:' + field + ',name:' + name + '}&type=' + chartTypes[cIndex];
+                        '&param={"field":"' + field + '","name":"' + name + '"}&type=' + chartTypes[cIndex];
 
                     self.thenOpen(link, function(){
                         self.waitFor(function check(){

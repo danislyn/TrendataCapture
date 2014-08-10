@@ -96,7 +96,7 @@ casper.then(function(){
             var asin = asins[j];
             for(var k=0; k<CHART_NUM; k++){
                 links.push(chartUrlPrefix + '?url=' + chartUrls[k] + 
-                    '&param={asin:' + asin + '}&type=' + chartTypes[k] + '&name=' + chartNames[k]);
+                    '&param={"asin":"' + asin + '"}&type=' + chartTypes[k] + '&name=' + chartNames[k]);
             }
         }
         pages.push(links);
@@ -110,7 +110,7 @@ casper.then(function(){
             that.each(urls, function(self, link){
                 console.log(link);
                 var params = (link.split('?')[1]).split('&');
-                var param = eval('(' + params[1].split('=')[1].replace(/\b\w+\b/g, '"$&"') + ')');
+                var param = eval('(' + params[1].split('=')[1] + ')');
                 var asin = param['asin'];
                 var chartName = params[3].split('=')[1];
 

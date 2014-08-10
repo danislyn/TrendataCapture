@@ -70,7 +70,7 @@ casper.then(function(){
 
                 (function(self, field, asin, cIndex){
                     var link = chartUrlPrefix + '?url=' + chartUrls[cIndex] + 
-                        '&param={asin:' + asin + '}&type=' + chartTypes[cIndex];
+                        '&param={"asin":"' + asin + '"}&type=' + chartTypes[cIndex];
 
                     self.thenOpen(link, function(){
                         self.waitFor(function check(){

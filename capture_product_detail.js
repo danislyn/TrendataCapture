@@ -8,7 +8,7 @@ var TIME = now.getFullYear() + '' +
     (now.getDate() < 10 ? ('0'+now.getDate()) : now.getDate());
 
 // ======================================
-var pageUrlPrefix = 'http://trendata.cn/mp/productDetail/?asin=';
+var pageUrlPrefix = 'http://trendata.cn/mp/productDetail/';
 var chartTargets = [
     '#starsBlock'
 ];
@@ -62,7 +62,7 @@ casper.then(function(){
             for(var j=0; j<chartTargets.length; j++){
 
                 (function(self, field, asin, cIndex){
-                    var link = pageUrlPrefix + asin;
+                    var link = pageUrlPrefix + '?asin=' + asin;
                     self.thenOpen(link, function(){
                         console.log('fuck ' + field + ' ' + asin + ' ' + chartNames[cIndex]);
                         self.captureSelector(ROOT + '/' + field + '/product/' + asin + '/' + 

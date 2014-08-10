@@ -10,10 +10,12 @@ var TIME = now.getFullYear() + '' +
 // ======================================
 var pageUrlPrefix = 'http://trendata.cn/mp/productDetail/';
 var chartTargets = [
-    '#starsBlock'
+    '#starsBlock',
+    'body'
 ];
 var chartNames = [
-    'starsInfoChart'
+    'starsInfoShot',
+    'fullScreen'
 ];
 
 var FIELDS = ['bag', 'dog', 'dress', 'office', 'skirt', 'wig'];
@@ -62,7 +64,7 @@ casper.then(function(){
             for(var j=0; j<chartTargets.length; j++){
 
                 (function(self, field, asin, cIndex){
-                    var link = pageUrlPrefix + '?asin=' + asin;
+                    var link = pageUrlPrefix + '?field=' + field + '&asin=' + asin;
                     self.thenOpen(link, function(){
                         console.log('fuck ' + field + ' ' + asin + ' ' + chartNames[cIndex]);
                         self.captureSelector(ROOT + '/' + field + '/product/' + asin + '/' + 

@@ -29,8 +29,8 @@ for(var i=0, len=FIELDS.length; i<len; i++){
 // ======================================
 var casper = require('casper').create({
     viewportSize: {
-        width: 320,
-        height: 600
+        width: 440,
+        height: 800
     }
 });
 casper.start();

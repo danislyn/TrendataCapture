@@ -11,10 +11,12 @@ var TIME = now.getFullYear() + '' +
 var pageUrlPrefix = 'http://trendata.cn/mp/productDetail/';
 var chartTargets = [
     '#starsBlock',
+    '#infoBlock',
     'body'
 ];
 var chartNames = [
     'starsInfoShot',
+    'productInfoShot',
     'fullScreen'
 ];
 

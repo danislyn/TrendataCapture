@@ -11,11 +11,13 @@ var TIME = now.getFullYear() + '' +
 var pageUrlPrefix = 'http://trendata.cn/mp/sellerDetail/';
 var chartTargets = [
     '#starsBlock',
+    '#infoBlock',
     '#reviewCompete',
     'body'
 ];
 var chartNames = [
     'starsInfoShot',
+    'sellerInfoShot',
     'reviewCompeteInfoShot',
     'fullScreen'
 ];

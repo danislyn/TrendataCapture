@@ -1,5 +1,5 @@
 var fs = require('fs');
-fs.write('data.txt', '', 'w');
+fs.write('test_data.txt', '', 'w');
 
 var TEST_LINK = 'http://www.amazon.com/gp/product/B004J3Y9U6';
 // var TEST_LINK = 'http://www.amazon.cn/dp/B004QEZ6H8';

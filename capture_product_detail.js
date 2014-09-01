@@ -52,7 +52,7 @@ casper.then(function(){
                 }
                 return result;
             });
-            products[field] = asins;
+            productsMap[field] = asins;
         });
     });
 });
